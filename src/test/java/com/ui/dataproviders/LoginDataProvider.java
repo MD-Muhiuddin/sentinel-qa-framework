@@ -2,7 +2,7 @@ package com.ui.dataproviders;
 
 import com.ui.pojo.User;
 import com.utility.CSVReaderUtility;
-import com.utility.ExcelReaderUtilityO;
+import com.utility.ExcelReaderUtility;
 import com.utility.JSONReaderUtility;
 
 import java.util.Iterator;
@@ -30,7 +30,7 @@ public class LoginDataProvider {
     
     @DataProvider(name = "LoginTestExcelDataProvider")
     public Iterator<User> loginExcelDataProvider() {
-    	return ExcelReaderUtilityO.readExcleFile("loginData.xlsx");
+    	return ExcelReaderUtility.readExcleFile("loginData.xlsx");
     }
     
 }
