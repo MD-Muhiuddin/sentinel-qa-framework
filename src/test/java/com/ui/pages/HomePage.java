@@ -14,17 +14,18 @@ public final class HomePage extends BrowserUtility {
     Logger logger = LoggerUtility.getLogger(this.getClass());
 
 	static final By SIGN_IN_BUTTON_LOCATOR = By.xpath("//a[contains(text(),'login')]");
- 
+    
+	String ENV=null;
 
     // ================================================================================
     //  CONSTRUCTOR: Passes configuration up to the Parent (BrowserUtility)
     // ================================================================================
-    public HomePage(Browser browserName, boolean isHeadLess, boolean isLambdaTest,String testName) {
+    public HomePage(Browser browserName, boolean isHeadLess, boolean isLambdaTest,String testName,String ENV) {
         // This single line starts the correct browser (Local or Cloud) based on the flags
-        super(browserName, isHeadLess, isLambdaTest, testName);
-        
+        super(browserName, isHeadLess, isLambdaTest, testName,ENV);
+        this.ENV = ENV;
         // Navigation Logic
-        String url = JsonConfigUtility.getEnvData("DEV").getUrl();
+        String url = JsonConfigUtility.getEnvData(ENV.toUpperCase()).getUrl();
         goToWebsite(url);
         maximizeWindow();
     }
@@ -33,7 +34,7 @@ public final class HomePage extends BrowserUtility {
     @Override
     public boolean PageLoadedSuccessfully() {
         String currentUrl = getDriver().getCurrentUrl();
-        boolean isUrlCorrect = currentUrl.contains(JsonConfigUtility.getEnvData("DEV").getUrl()); 
+        boolean isUrlCorrect = currentUrl.contains(JsonConfigUtility.getEnvData(ENV.toUpperCase()).getUrl()); 
         boolean isSignButtonVisible = isElementDisplayed(SIGN_IN_BUTTON_LOCATOR);
 
         if (isUrlCorrect && isSignButtonVisible) {
