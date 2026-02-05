@@ -115,11 +115,10 @@ public class TestListener implements ITestListener {
 	public void onTestSkipped(ITestResult result) {
 		logger.warn("⚠️ [TEST SKIPPED]: " + result.getMethod().getMethodName()
 				+ "Test skipped due to an initial failure; re-executing....");
-		
+
 		ExtentReporterUtility.getTest().log(Status.SKIP,
 				"Test marked as SKIPPED because of a prior failure; retry mechanism triggered.");
-		
-		
+
 		long duration = result.getEndMillis() - result.getStartMillis();
 		logger.info("   ⏱️ Time Taken: " + duration + " ms");
 		ExtentReporterUtility.log(Status.INFO, "Execution Time: <b>" + duration + " ms</b>");
