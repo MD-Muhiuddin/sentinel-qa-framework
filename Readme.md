@@ -299,6 +299,10 @@ Specialization: SQA Engineer | Software Quality Assurance
 
 🛡️ SentinelQA: Ensuring good quality software development processes with DevOps best practices.
 
-## 12. Project Exetution 
- <img src="./ShowcaseResources/log.gif" alt="Framework diagram" width="600">
- <img src="./ShowcaseResources/ThreadedWindows.gif" alt="Framework diagram" width="600">
+## 12. Project Execution
+
+### Headless Mode
+<img src="./ShowcaseResources/log.gif" alt="Headless mode log" width="600">
+
+### Headless False
+<img src="./ShowcaseResources/ThreadedWindows.gif" alt="Threaded windows execution" width="600">
