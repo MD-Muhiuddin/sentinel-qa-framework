@@ -132,6 +132,7 @@ public abstract class BrowserUtility {
 			ChromeOptions options = new ChromeOptions();
 			if (isHeadLess) {
 				options.addArguments("--headless=new");
+				options.addArguments("--disable-dev-shm-usage"); // Overcomes limited resource problems
 				options.addArguments("--window-size=1920,1080");
 				driver.set(new ChromeDriver(options));
 			} else {
