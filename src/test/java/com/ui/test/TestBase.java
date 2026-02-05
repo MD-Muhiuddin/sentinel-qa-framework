@@ -23,20 +23,17 @@ public class TestBase {
 	@Parameters({ "browser", "isLambdaTest", "isHeadLess", "ENV" })
 	@BeforeMethod(description = "Load the Home page of the website")
 
-	public void setup(@Optional("chrome") String browser, 
-			@Optional("false") boolean isLambdaTest,
-			@Optional("true") boolean isHeadLess, 
-			@Optional("DEV") String ENV, 
-			ITestResult result) {
+	public void setup(@Optional("chrome") String browser, @Optional("false") boolean isLambdaTest,
+			@Optional("true") boolean isHeadLess, @Optional("DEV") String ENV, ITestResult result) {
 
 		String testName = result.getMethod().getMethodName();
 
 		logger.info("⚙️ SETUP: Initializing Test Environment [Cloud: " + isLambdaTest + " | Headless: " + isHeadLess
 				+ " | Environment: " + ENV + "]");
 
-		//ONE LINE TO RULE THEM ALL
+		// ONE LINE TO RULE THEM ALL
 		// The HomePage/BrowserUtility now handles the 'if/else' logic internally
-		homePage = new HomePage(Browser.valueOf(browser.toUpperCase()), isHeadLess, isLambdaTest, testName,ENV);
+		homePage = new HomePage(Browser.valueOf(browser.toUpperCase()), isHeadLess, isLambdaTest, testName, ENV);
 
 		logger.info("🛠 SETUP: Session Created Successfully ✅.");
 	}
